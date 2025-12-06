@@ -50,3 +50,8 @@ def salon_masters(request, salon_id):
     salon = get_object_or_404(Salon, id=salon_id)
     masters = salon.master_set.prefetch_related('masterservice_set__service')
     return render(request, 'salon/salon_masters.html', {'salon': salon, 'masters': masters})
+
+def master_services(request, master_id):
+    master = get_object_or_404(Master, id=master_id)
+    services = master.masterservice_set.select_related('service')
+    return render(request, 'salon/master_services.html', {'master': master, 'services': services})

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Услуги мастера {{ master.first_name }} {{ master.last_name }}</h1>
+<ul>
+  {% for ms in services %}
+    <li>{{ ms.service.name }} — {{ ms.service.price }} руб. {% if ms.special_price %}(спец. цена: {{ ms.special_price }} руб.){% endif %}</li>
+  {% empty %}
+    <li>У этого мастера нет услуг.</li>
+  {% endfor %}
+</ul>
+</body>
+</html>
