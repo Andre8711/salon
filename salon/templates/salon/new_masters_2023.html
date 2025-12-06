@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Мастера, принятые в 2023 году</h1>
+<ul>
+  {% for master in masters %}
+    <li>{{ master.first_name }} {{ master.last_name }} — Дата приёма: {{ master.hire_date }}</li>
+  {% empty %}
+    <li>Нет новых мастеров, принятых в 2023 году.</li>
+  {% endfor %}
+</ul>
+</body>
+</html>

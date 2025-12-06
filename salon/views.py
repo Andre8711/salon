@@ -24,3 +24,7 @@ def top_masters(request):
 def experienced_hairdressers(request):
     masters = Master.objects.filter(position='Парикмахер', experience__gt=5)
     return render(request, 'salon/experienced_hairdressers.html', {'masters': masters})
+
+def new_masters_2023(request):
+    masters = Master.objects.filter(hire_date__year=2023)
+    return render(request, 'salon/new_masters_2023.html', {'masters': masters})
