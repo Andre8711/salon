@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Бюджетные услуги (дешевле 2000 руб. и дольше 30 мин)</h1>
+<ul>
+  {% for service in services %}
+    <li>{{ service.name }} — {{ service.price }} руб., {{ service.duration }} мин</li>
+  {% empty %}
+    <li>Нет бюджетных услуг.</li>
+  {% endfor %}
+</ul>
+</body>
+</html>

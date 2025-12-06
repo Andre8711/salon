@@ -36,3 +36,8 @@ def good_masters(request):
 def hair_services(request):
     services = Service.objects.filter(category='hair')
     return render(request, 'salon/hair_services.html', {'services': services})
+
+
+def budget_services(request):
+    services = Service.objects.filter(price__lt=2000, duration__gt=30)
+    return render(request, 'salon/budget_services.html', {'services': services})
