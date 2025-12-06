@@ -6,13 +6,28 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Активные салоны</h1>
+ <h1>Активные салоны</h1>
 <ul>
   {% for salon in salons %}
     <li>{{ salon.name }}</li>
   {% empty %}
     <li>Нет активных салонов</li>
   {% endfor %}
+</ul>
+
+<h2>Навигация по заданиям</h2>
+<ul>
+  <li><a href="{% url 'top_masters' %}">Топ-мастера</a></li>
+  <li><a href="{% url 'experienced_hairdressers' %}">Опытные парикмахеры</a></li>
+  <li><a href="{% url 'new_masters_2023' %}">Новые мастера 2023</a></li>
+  <li><a href="{% url 'good_masters' %}">Хорошие мастера</a></li>
+  <li><a href="{% url 'hair_services' %}">Услуги для волос</a></li>
+  <li><a href="{% url 'budget_services' %}">Бюджетные услуги</a></li>
+  <li><a href="{% url 'haircut_services' %}">Стрижки</a></li>
+  <li><a href="{% url 'salons_with_cosmetologists' %}">Салоны с косметологами</a></li>
+  <li><a href="{% url 'expensive_service_masters' %}">Мастера дорогих услуг</a></li>
+  <li><a href="{% url 'discounted_services' %}">Услуги со скидкой</a></li>
+  <li><a href="{% url 'professional_masters' %}">Профессиональные мастера</a></li>
 </ul>
 
 </body>

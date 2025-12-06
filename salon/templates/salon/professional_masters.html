@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Профессиональные мастера (опыт >3 лет, рейтинг >4.0, активные салоны)</h1>
+<ul>
+  {% for master in masters %}
+    <li>
+      {{ master.first_name }} {{ master.last_name }} — опыт: {{ master.experience }} лет, рейтинг: {{ master.rating }}, салон: {{ master.salon.name }}
+    </li>
+  {% empty %}
+    <li>Нет профессиональных мастеров по этим критериям.</li>
+  {% endfor %}
+</ul>
+</body>
+</html>

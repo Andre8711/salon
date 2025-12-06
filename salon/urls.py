@@ -18,4 +18,5 @@ urlpatterns = [
     path('salons_with_cosmetologists/', views.salons_with_cosmetologists, name='salons_with_cosmetologists'),
     path('expensive_service_masters/', views.expensive_service_masters, name='expensive_service_masters'),
     path('discounted_services/', views.discounted_services, name='discounted_services'),
+    path('professional_masters/', views.professional_masters, name='professional_masters'),
 ]
