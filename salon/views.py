@@ -55,3 +55,8 @@ def master_services(request, master_id):
     master = get_object_or_404(Master, id=master_id)
     services = master.masterservice_set.select_related('service')
     return render(request, 'salon/master_services.html', {'master': master, 'services': services})
+
+
+def salons_with_cosmetologists(request):
+    salons = Salon.objects.filter(master__specialization='cosmetology').distinct()
+    return render(request, 'salon/salons_with_cosmetologists.html', {'salons': salons})

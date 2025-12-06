@@ -15,4 +15,5 @@ urlpatterns = [
     path('good_masters/', views.good_masters, name='good_masters'),
     path('salon/<int:salon_id>/masters/', views.salon_masters, name='salon_masters'),
     path('master/<int:master_id>/services/', views.master_services, name='master_services'),
+    path('salons_with_cosmetologists/', views.salons_with_cosmetologists, name='salons_with_cosmetologists'),
 ]
