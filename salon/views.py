@@ -11,3 +11,7 @@ def active_salons(request):
 def salon_detail(request, salon_id):
     salon = get_object_or_404(Salon, id=salon_id)
     return render(request, 'salon/salon_detail.html', {'salon': salon})
+
+def first_active_salon(request):
+    salon = Salon.objects.filter(is_active=True).first()
+    return render(request, 'salon/first_active_salon.html', {'salon': salon})
