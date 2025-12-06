@@ -2,7 +2,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Salon
 from .models import Master
-
+from .models import Service
 
 def active_salons(request):
     salons = Salon.objects.filter(is_active=True)
@@ -32,3 +32,7 @@ def new_masters_2023(request):
 def good_masters(request):
     masters = Master.objects.filter(rating__gte=4.0, rating__lte=4.8)
     return render(request, 'salon/good_masters.html', {'masters': masters})
+
+def hair_services(request):
+    services = Service.objects.filter(category='hair')
+    return render(request, 'salon/hair_services.html', {'services': services})
