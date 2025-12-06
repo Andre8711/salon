@@ -1,6 +1,7 @@
 
 from django.shortcuts import render, get_object_or_404
 from .models import Salon
+from .models import Master
 
 
 def active_salons(request):
@@ -15,3 +16,7 @@ def salon_detail(request, salon_id):
 def first_active_salon(request):
     salon = Salon.objects.filter(is_active=True).first()
     return render(request, 'salon/first_active_salon.html', {'salon': salon})
+
+def top_masters(request):
+    masters = Master.objects.filter(rating__gt=4.5)
+    return render(request, 'salon/top_masters.html', {'masters': masters})
