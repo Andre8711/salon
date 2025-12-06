@@ -28,3 +28,7 @@ def experienced_hairdressers(request):
 def new_masters_2023(request):
     masters = Master.objects.filter(hire_date__year=2023)
     return render(request, 'salon/new_masters_2023.html', {'masters': masters})
+
+def good_masters(request):
+    masters = Master.objects.filter(rating__gte=4.0, rating__lte=4.8)
+    return render(request, 'salon/good_masters.html', {'masters': masters})
