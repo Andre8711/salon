@@ -20,3 +20,7 @@ def first_active_salon(request):
 def top_masters(request):
     masters = Master.objects.filter(rating__gt=4.5)
     return render(request, 'salon/top_masters.html', {'masters': masters})
+
+def experienced_hairdressers(request):
+    masters = Master.objects.filter(position='Парикмахер', experience__gt=5)
+    return render(request, 'salon/experienced_hairdressers.html', {'masters': masters})

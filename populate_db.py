@@ -4,7 +4,7 @@ from datetime import date, time
 from decimal import Decimal
 
 # Настройка Django
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'salon_project.settings')
 django.setup()
 
 from salon.models import Salon, Master, Service, MasterService
