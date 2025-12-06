@@ -60,3 +60,7 @@ def master_services(request, master_id):
 def salons_with_cosmetologists(request):
     salons = Salon.objects.filter(master__specialization='cosmetology').distinct()
     return render(request, 'salon/salons_with_cosmetologists.html', {'salons': salons})
+
+def expensive_service_masters(request):
+    masters = Master.objects.filter(masterservice__service__price__gt=3000).distinct()
+    return render(request, 'salon/expensive_service_masters.html', {'masters': masters})
