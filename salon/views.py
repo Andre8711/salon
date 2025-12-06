@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Salon
 from .models import Master
 from .models import Service
+from .models import MasterService
 
 def active_salons(request):
     salons = Salon.objects.filter(is_active=True)
@@ -64,3 +65,7 @@ def salons_with_cosmetologists(request):
 def expensive_service_masters(request):
     masters = Master.objects.filter(masterservice__service__price__gt=3000).distinct()
     return render(request, 'salon/expensive_service_masters.html', {'masters': masters})
+
+def discounted_services(request):
+    services = MasterService.objects.filter(special_price__isnull=False).select_related('service', 'master')
+    return render(request, 'salon/discounted_services.html', {'services': services})

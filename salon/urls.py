@@ -17,4 +17,5 @@ urlpatterns = [
     path('master/<int:master_id>/services/', views.master_services, name='master_services'),
     path('salons_with_cosmetologists/', views.salons_with_cosmetologists, name='salons_with_cosmetologists'),
     path('expensive_service_masters/', views.expensive_service_masters, name='expensive_service_masters'),
+    path('discounted_services/', views.discounted_services, name='discounted_services'),
 ]
