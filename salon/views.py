@@ -45,3 +45,8 @@ def budget_services(request):
 def haircut_services(request):
     services = Service.objects.filter(name__icontains='стрижка')
     return render(request, 'salon/haircut_services.html', {'services': services})
+
+def salon_masters(request, salon_id):
+    salon = get_object_or_404(Salon, id=salon_id)
+    masters = salon.master_set.prefetch_related('masterservice_set__service')
+    return render(request, 'salon/salon_masters.html', {'salon': salon, 'masters': masters})

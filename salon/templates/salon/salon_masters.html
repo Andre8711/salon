@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Мастера салона "{{ salon.name }}"</h1>
+<ul>
+  {% for master in masters %}
+    <li>
+      {{ master.first_name }} {{ master.last_name }} ({{ master.specialization }})
+      <ul>
+        {% for ms in master.masterservice_set.all %}
+          <li>{{ ms.service.name }}{% if ms.special_price %} — спец. цена: {{ ms.special_price }} руб.{% endif %}</li>
+        {% empty %}
+          <li>Нет услуг</li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% empty %}
+    <li>В этом салоне нет мастеров.</li>
+  {% endfor %}
+</ul>
+</body>
+</html>
